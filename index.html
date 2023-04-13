@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myFunction()">Открыть приложение</button>
+
+<button onclick="openInNambaOne()">Открыть в приложении Namba One</button>
+
+</body>
+<script>
+    function myFunction(){
+        window.location.href = "nambaone://nambaone.app/#97625ddf-5a70-48aa-9ee5-755530632a32"
+    }
+
+function openInNambaOne() {
+  var scheme;
+  if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+    scheme = "nambaone://";
+  } else if (navigator.userAgent.match(/Android/i)) {
+    scheme = "intent://#Intent;scheme=nambaone;package=namba.wallet.nambaone;end";
+  } else {
+    window.open("https://nambaone.app/");
+    return;
+  }
+  var url = "https://nambaone.app/#97625ddf-5a70-48aa-9ee5-755530632a32"; // замените на ваш deeplink
+  var win = window.open(scheme + encodeURIComponent(url), '_blank');
+  win.focus();
+}
+
+</script>
+</html>
